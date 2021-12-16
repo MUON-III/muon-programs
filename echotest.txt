@@ -1,4 +1,4 @@
-nop
+dw 0
 mov 8 0xFF0000
 mov 9 0xFF0000
 jmp 0
