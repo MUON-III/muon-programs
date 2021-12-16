@@ -6,7 +6,7 @@ pipeline {
     CASM_URL = 'https://jenkins.i-am.cool/job/muon-casm/job/master/43/artifact/casm-static-ee42f56-git' 
   }
   stages {
-    stage('Assemble microcode') {
+    stage('Assemble muon-echotest') {
       steps {
         sh 'curl -L "$CASM_URL" -o casm-static && chmod +x casm-static'
         dir("build"){
