@@ -1,5 +1,6 @@
 ;;; prints "HELLO\n" to the terminal
 
+dw 0
 mov 5 0xF00000
 mov 6 0xF00000
 ; halt and catch fire
