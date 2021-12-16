@@ -1,0 +1,5 @@
+mov 3 0xFF0000
+mov 4 0xFF0000
+jmp 0
+dw 0x48454c
+dw 0x4c4f0a
