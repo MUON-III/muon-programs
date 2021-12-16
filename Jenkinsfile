@@ -10,9 +10,8 @@ pipeline {
       steps {
         sh 'curl -L "$CASM_URL" -o casm-static && chmod +x casm-static'
         dir("build"){
-          sh '$WORKSPACE/casm-static --input $WORKSPACE/ucode.txt --output ucode-lower.rom --ucodesplit ucode-upper.rom --ucode'
-          sh '$WORKSPACE/casm-static --input $WORKSPACE/ucode.txt --output ucode.bin --ucode --binary'
-          archiveArtifacts artifacts: 'ucode*', fingerprint: true
+          sh '$WORKSPACE/casm-static --input $WORKSPACE/echotest.txt --output muon-echotest.rom'
+          archiveArtifacts artifacts: 'muon*', fingerprint: true
           deleteDir()
         }
       }
