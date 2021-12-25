@@ -16,7 +16,7 @@ ldai {nc}
 ldb 1
 add {nc}
 ldbi {ctrmax}
-add {scratch}
+cmp {scratch}
 brch 2 {end}
 jmp {start}
 :end
@@ -51,7 +51,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 3
-add {scratch}
+cmp {scratch}
 brch 2 {d2shrlpend}
 jmp {d2shrloop}
 :d2shrlpend
@@ -77,7 +77,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 7
-add {scratch}
+cmp {scratch}
 brch 2 {d3shrlpend}
 jmp {d3shrloop}
 :d3shrlpend
@@ -103,7 +103,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 11
-add {scratch}
+cmp {scratch}
 brch 2 {d4shrlpend}
 jmp {d4shrloop}
 :d4shrlpend
@@ -129,7 +129,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 15
-add {scratch}
+cmp {scratch}
 brch 2 {d5shrlpend}
 jmp {d5shrloop}
 :d5shrlpend
@@ -155,7 +155,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 19
-add {scratch}
+cmp {scratch}
 brch 2 {d6shrlpend}
 jmp {d6shrloop}
 :d6shrlpend
@@ -182,7 +182,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 7
-add {scratch}
+cmp {scratch}
 brch 2 {dg1d2end}
 jmp {dg1d2loop}
 :dg1d2end
@@ -196,7 +196,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 15
-add {scratch}
+cmp {scratch}
 brch 2 {dg1d3end}
 jmp {dg1d3loop}
 :dg1d3end
@@ -224,7 +224,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 7
-add {scratch}
+cmp {scratch}
 brch 2 {dg2d5end}
 jmp {dg2d5loop}
 :dg2d5end
@@ -238,7 +238,7 @@ ldai {ctr2}
 ldb 1
 add {ctr2}
 ldb 15
-add {scratch}
+cmp {scratch}
 brch 2 {dg2d6end}
 jmp {dg2d6loop}
 :dg2d6end
