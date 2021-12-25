@@ -44,12 +44,8 @@ and {d2}
 lda 0
 ota {ctr2}
 :d2shrloop
-mov {d2} {shrbuf}
-lda {d2shrend}
-ota {shrend}
-jmp {shr}
-:d2shrend
-mov {shrout} {d2}
+ldai {d2}
+shra {d2}
 ;;
 ldai {ctr2}
 ldb 1
@@ -74,12 +70,8 @@ and {d3}
 lda 0
 ota {ctr2}
 :d3shrloop
-mov {d3} {shrbuf}
-lda {d3shrend}
-ota {shrend}
-jmp {shr}
-:d3shrend
-mov {shrout} {d3}
+ldai {d3}
+shra {d3}
 ;;
 ldai {ctr2}
 ldb 1
@@ -104,12 +96,8 @@ and {d4}
 lda 0
 ota {ctr2}
 :d4shrloop
-mov {d4} {shrbuf}
-lda {d4shrend}
-ota {shrend}
-jmp {shr}
-:d4shrend
-mov {shrout} {d4}
+ldai {d4}
+shra {d4}
 ;;
 ldai {ctr2}
 ldb 1
@@ -134,12 +122,8 @@ and {d5}
 lda 0
 ota {ctr2}
 :d5shrloop
-mov {d5} {shrbuf}
-lda {d5shrend}
-ota {shrend}
-jmp {shr}
-:d5shrend
-mov {shrout} {d5}
+ldai {d5}
+shra {d5}
 ;;
 ldai {ctr2}
 ldb 1
@@ -164,12 +148,8 @@ and {d6}
 lda 0
 ota {ctr2}
 :d6shrloop
-mov {d6} {shrbuf}
-lda {d6shrend}
-ota {shrend}
-jmp {shr}
-:d6shrend
-mov {shrout} {d6}
+ldai {d6}
+shra {d6}
 ;;
 ldai {ctr2}
 ldb 1
@@ -288,8 +268,7 @@ dw 0
 :ctr
 dw 0
 :ctrmax
-dw 20
-
+dw 33
 :ctr2
 dw 0
 
@@ -356,67 +335,3 @@ dw 0x123456
 
 :hexstart
 dw 0x203078
-
-:shr
-; setup
-lda 1
-ota {shrval}
-lda 0
-ota {shrctr}
-lda 0
-ota {shrout}
-; loop
-
-:shrloop
-mov {shrval} {shrvallast}
-ldai {shrval}
-shla {shrval}
-;
-ldai {shrval}
-ldbi {shrbuf}
-and {shrtemp}
-ldai {shrtemp}
-ldb 0
-add {scratch}
-brch 2 {bitunset}
-ldai {shrout}
-ldbi {shrvallast}
-or {shrout}
-;
-:bitunset
-;;;;;;;
-ldai {shrctr}
-ldb 1
-add {shrctr}
-ldb 24
-add {scratch}
-brch 2 {shrloopend}
-jmp {shrloop}
-:shrloopend
-
-mov {shrendtmpl} {shrendinsn}
-ldai {shrend}
-ldb 0xffff
-and {scratch}
-ldai {shrendinsn}
-ldbi {scratch}
-or {shrendinsn}
-:shrendinsn
-jmp 0
-:shrendtmpl
-jmp 0
-
-:shrvallast
-dw 0
-:shrval
-dw 1
-:shrbuf
-dw 0
-:shrout
-dw 0
-:shrend
-dw 0
-:shrctr
-dw 0
-:shrtemp
-dw 0
